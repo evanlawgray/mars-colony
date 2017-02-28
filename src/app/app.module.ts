@@ -12,7 +12,7 @@ import { ReportComponent } from './report/report.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'register', component: RegisterComponent}, 
   { path: 'encounters', component: EncountersComponent},
   { path: 'report', component: ReportComponent},
