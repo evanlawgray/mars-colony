@@ -48,8 +48,15 @@ table {
 	border-spacing: 0;
 }
 
+// My global styles
+
+* {
+	box-sizing: border-box;
+}
 
 body, html {
+	max-height: 100vh;
+	max-width: 100vw;
     font-family: 'Roboto', Arial, serif;
     font-weight: 100;
     color: #FFF;

@@ -1,0 +1,63 @@
+.report-page {
+    height: 100vh;
+    width: 100vw;
+    background: white;
+    color: black;
+
+    .report-page-wrapper {
+        height: 100%;
+        width: 100%;
+        padding-top: 2.35rem;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: center;
+
+        .page-header {
+            height: 12.5%;
+            width: 100%;
+            background: white;
+            text-align: center;
+
+            .page-title {
+                font-size: 2.35rem;
+                margin-bottom: 0.1rem;
+            }
+        }
+
+        .encounters-list-wrapper {
+            height: 56.5%;
+            width: 100%;
+            background: white;
+            overflow: scroll;
+            text-align: center;
+
+            ::-webkit-scrollbar-thumb{
+                height: 20px;
+            }
+
+            .encounters-list {
+                height: 1900px;
+                width: 150px;
+                margin: 0 auto;
+                background: linear-gradient(red 0%, gray 100%);
+                list-style-type: none;
+            }
+        }
+
+        .report-encounter-button {
+            height: 26%;
+            width: 100%;
+            border: none;
+            color: white;
+            padding-bottom: 4.5rem;
+            background: black;
+            font-size: 2.35rem;
+            font-weight: 100;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+        }
+    }
+}

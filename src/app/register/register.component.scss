@@ -50,7 +50,7 @@
                     height: 38px;
                     width: 100%;
                     margin-top: 1.5rem;
-                    border: 0;
+                    border: 0px;
                     border-bottom: 1.5px solid white;
                     border-radius: 0;
                     font-size: 1.15rem;
@@ -66,7 +66,7 @@
                 select {
                     min-width: 103%;
                     appearance: none;
-                    border-radius: none;
+                    border-radius: 0px;
                     -webkit-appearance: none;
                     -webkit-border-radius: 0px;
                 }

@@ -1,0 +1,29 @@
+.error-page {
+    height: 100vh;
+    width: 100vw;
+    background: black;
+    color: white;
+
+    .error-page-wrapper {
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+
+        .error-page-header {
+            font-size: 2.35rem;
+            position: relative;
+            bottom: 15%;
+        }
+
+        .error-page-text {
+            font-size: 1rem;
+            position: relative;
+            right: 3%;
+            bottom: 7%;
+        }
+    }
+}
