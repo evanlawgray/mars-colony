@@ -1,0 +1,91 @@
+.register-page {
+    height: 100vh;
+    width: 100vw;
+    background: black;
+
+    .register-page-wrapper {
+        height: 100%;
+        padding-top: 2.35rem;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: center;
+
+        .page-header {
+            font-size: 2.35rem;
+            font-weight: lighter;
+        }
+
+        .check-in {
+            font-size: 2.25rem;
+            background: none;
+            border: none;
+            color: white;
+            font-weight: 100;
+            letter-spacing: 1px;
+            
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .form-container {
+            height: auto;
+            width: 100%;
+            padding: 0.5rem 0rem;
+            margin-right: 1.5rem;
+            margin-bottom: 10rem;
+
+            .registration-form {
+                height: auto;
+                width: 80%;
+                margin: 0 auto;
+                border: none;
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: space-between;
+                align-items: center;
+
+                input[type="text"], select{
+                    height: 38px;
+                    width: 100%;
+                    margin-top: 1.5rem;
+                    border: 0;
+                    border-bottom: 1.5px solid white;
+                    border-radius: 0;
+                    font-size: 1.15rem;
+                    background-color: black;
+                    color: #ED4343;
+                }
+
+                input[type="text"] {
+                    margin-top: 0.75rem;
+                    padding: 0.75rem 0 0 0.5rem;
+                }
+
+                select {
+                    min-width: 103%;
+                    appearance: none;
+                    border-radius: none;
+                    -webkit-appearance: none;
+                    -webkit-border-radius: 0px;
+                }
+
+                ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+                    color: #ED4343;
+                }
+                :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                    color: #ED4343;
+                    opacity:  1;
+                }
+                ::-moz-placeholder { /* Mozilla Firefox 19+ */
+                    color: #ED4343;
+                    opacity:  1;
+                }
+                :-ms-input-placeholder { /* Internet Explorer 10-11 */
+                    color: #ED4343;
+                }
+            }
+        }
+    }
+}
