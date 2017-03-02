@@ -2,19 +2,20 @@
   <div class="register-page-wrapper">
     <h1 class="page-header">Register</h1>
 
-    <form class="form-container">
+
+    <form class="form-container" [formGroup]="registerForm" [ngClass]="{'flashing-input': submitted}">
       <fieldset class="registration-form">
-        <input type=text id=name-input placeholder="Name"/>
-        <input type=text id=age-input placeholder="Age"/>
-        <select name=select>
-          <option value="" disabled selected><span class="select-box-placeholder">Select occupation</span></option>
-          <option value="AlienHunter">Alien Hunter</option>
-          <option value="YogaTeacher">Yoga Teacher</option>
-          <option value="DustFarmer">Dust Farmer</option>
-          <option value="Front-End Developer">Front-End Developer</option>
+        <input type=text id=name-input placeholder="Name" require formControlName="name" name="name"/>
+        <input type="number" id=age-input placeholder="Age" required formControlName="age" name="age"/>
+        <select required formControlName="job_id" name="job_id">        
+          <option value="none" disabled selected>Select occupation</option>
+          <option *ngFor="let job of marsJobs" value="{{job.id}}">{{ job.name }}</option>
         </select>
       </fieldset>
     </form>
-    <button href="/encounters"class="check-in">Check in</button>
+
+    <button (click)="logColonist()"></button>
+
+    <button type="submit" href="/encounters"class="check-in">Check in</button>
   </div>  
 </div>
