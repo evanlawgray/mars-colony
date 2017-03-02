@@ -4,20 +4,17 @@
     <p class="report-encounter-text">Safety on Mars is Your Responsibility</p>
 
     <div class="form-container">
-        <form id="form">
+        <form id="form" [formGroup]="reportForm" [ngClass]="{'flashing-input':submitted}">
 
-          <select>
-            <option value="" disabled selected>Select alien type</option>
-            <option value="AlienHunter">Predator</option>
-            <option value="YogaTeacher">Endomorph</option>
-            <option value="DustFarmer">Octospider</option>
-            <option value="Front-End Developer">Special K</option>
+          <select formControlName="atype">
+            <option value="none" disabled selected>Select alien type</option>
+            <option *ngFor="let alien of aliens" value="{{alien.id}}">{{ alien.type }}</option>
           </select>
 
-          <textarea class="alien-type-textarea" name="alien-type-form" form="form">Action taken</textarea> 
+          <textarea class="alien-type-textarea" name="alien-type-form" formControlName="action" form="form">Action taken</textarea> 
         </form>
 
-        <button type="submit" class="submit-report-button">Submit Report</button>
+        <button (click)="logEncounter()" type="submit" class="submit-report-button">Submit Report</button>
     </div>
   </div>
 </div>
