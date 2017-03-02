@@ -2,11 +2,16 @@
   <div class="report-page-wrapper">
     <div class="page-header">
       <h1 class="page-title">Recent Encounters</h1>
-      <p>Seen and Alien? Report it!</p>
+      <p>Seen an Alien? Report it!</p>
     </div>
 
     <section class="encounters-list-wrapper">
-      <ul class="encounters-list"></ul>
+      <ul class="encounters-list">
+        <li *ngFor="let encounter of encounters">
+          <p class="alien-type">{{ encounter.atype }}</p>
+          <p class="encounter-text"> {{ encounter.action }}</p>
+        </li>
+      </ul>
     </section>
     <button class="report-encounter-button">Report Encounter</button>
   </div>

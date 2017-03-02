@@ -37,10 +37,13 @@
             }
 
             .encounters-list {
-                height: 1900px;
-                width: 150px;
+                // height: 1900px;
+                // width: 150px;
+                height: 100%;
+                width: 100%;
+                background: white;
                 margin: 0 auto;
-                background: linear-gradient(red 0%, gray 100%);
+                // background: linear-gradient(red 0%, gray 100%);
                 list-style-type: none;
             }
         }
