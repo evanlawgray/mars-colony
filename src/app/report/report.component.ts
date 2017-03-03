@@ -2,10 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { NewEncounter, Alien, Colonist } from '../models';
 
+import { REPORT_URL } from '../models/API';
+import { AliensAPIService } from '../apiService/aliens';
+
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
-  styleUrls: ['./report.component.scss']
+  styleUrls: ['./report.component.scss'],
+  providers: [AliensAPIService]
 })
 export class ReportComponent implements OnInit {
   newEncounter: NewEncounter;
@@ -16,45 +20,9 @@ export class ReportComponent implements OnInit {
   clicked: boolean;
 
 
-  constructor() {
-    this.aliens = [
-      {
-        "type": "Special K",
-        "submitted_by": "1",
-        "id": 1,
-        "description": "Special."
-      },
-      {
-        "type": "Endomorph",
-        "submitted_by": "1",
-        "id": 2,
-        "description": "Slimy, and gross."
-      },
-      {
-        "type": "Octospider",
-        "submitted_by": "1",
-        "id": 3,
-        "description": "Rendevous with Rama."
-      },
-      {
-        "type": "The Predator",
-        "submitted_by": "1",
-        "id": 4,
-        "description": "Yeah, he's here. Call Arnold."
-      },
-      {
-        "type": "Darth Vader",
-        "submitted_by": "3",
-        "id": 5,
-        "description": "Got daddy issues."
-      },
-      {
-        "type": "Yoda",
-        "submitted_by": "3",
-        "id": 6,
-        "description": "Do or do not do; there is not try."
-      }
-    ];
+  constructor(private aliensApiService: AliensAPIService) {
+    
+    this.getAliens();
 
     this.date = new Date;
     this.clicked = false;
@@ -62,10 +30,9 @@ export class ReportComponent implements OnInit {
     this.reportForm = new FormGroup ({
       atype: new FormControl('none', [Validators.required]),
       action: new FormControl('', [Validators.required, Validators.maxLength(200)])
-      // date: new Date.format('YYYY-MM-DD')
-  })
+    })
 
-   }
+  }
 
    logEncounter(){
      this.clicked = true;
@@ -74,6 +41,14 @@ export class ReportComponent implements OnInit {
    }
 
   ngOnInit() {
+  }
+
+  getAliens() {
+    this.aliensApiService.fetchAliens()
+                       .subscribe((result) => {
+                        console.log('Colonist was saved:', result);
+                        this.aliens = result;
+                       });    
   }
 
 }

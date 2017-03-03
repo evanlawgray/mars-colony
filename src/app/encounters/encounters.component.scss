@@ -26,25 +26,34 @@
         }
 
         .encounters-list-wrapper {
+            box-sizing: border-box;
             height: 56.5%;
             width: 100%;
+            padding: 1rem 1rem 2rem 1rem;
             background: white;
+            font-size: 1.1rem;
             overflow: scroll;
-            text-align: center;
+            text-align: left;
 
             ::-webkit-scrollbar-thumb{
                 height: 20px;
             }
 
             .encounters-list {
-                // height: 1900px;
-                // width: 150px;
                 height: 100%;
                 width: 100%;
                 background: white;
                 margin: 0 auto;
                 // background: linear-gradient(red 0%, gray 100%);
                 list-style-type: none;
+
+                li {
+                    margin-bottom: 1rem;
+
+                    .encounter-action-text {
+                        display: block;
+                    }
+                }
             }
         }
 

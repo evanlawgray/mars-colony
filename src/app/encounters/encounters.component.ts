@@ -24,8 +24,6 @@ export class EncountersComponent implements OnInit {
   fetchEncounters() {
     this.encountersApiService.fetchEncounters()
                        .subscribe((result) => {
-                        console.log('hello');
-                        console.log('Colonist was saved:', result);
                         this.encounters = result;
                        });    
   }
