@@ -103,6 +103,6 @@
     }
 }
 
-.ng-invalid.flashing-input fieldset input, .ng-invalid.flashing-input fieldset select {
+.ng-invalid.flashing-input fieldset input.ng-invalid, .ng-invalid.flashing-input fieldset selectng-invalid {
     animation: input-flasher 0.55s infinite;
 }

@@ -16,6 +16,6 @@ export class JobsAPIService {
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
         return this.http.get(JOBS_URL, { headers })
-            .map((res:Response) => res.json());
+            .map((res:Response) => res.json().jobs);
     }
 }

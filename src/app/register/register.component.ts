@@ -77,7 +77,7 @@ export class RegisterComponent implements OnInit {
 
       const newColonist = new NewColonist (name, age, job_id);
       console.log(newColonist);
-      this.colonistApiService.saveColonist(newColonist)
+      this.colonistApiService.saveColonist({ colonist: newColonist})
                              .subscribe((result) => {
                                console.log('Colonist was saved:', result);
                              });
@@ -88,10 +88,8 @@ export class RegisterComponent implements OnInit {
     this.jobsApiService.fetchJobs()
                        .subscribe((result) => {
                         console.log('Colonist was saved:', result);
-                        const responseObject: any = result;
-                        this.marsJobs = responseObject.jobs;
-                       });
-    
+                        this.marsJobs = result;
+                       });    
  }
 
 }
