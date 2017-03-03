@@ -11,9 +11,9 @@ export class ReportComponent implements OnInit {
   newEncounter: NewEncounter;
   colonist: Colonist;
   aliens: Alien[];
-  date: Date;
+  date: any;
   reportForm: FormGroup;
-  submitted: boolean;
+  clicked: boolean;
 
 
   constructor() {
@@ -56,18 +56,21 @@ export class ReportComponent implements OnInit {
       }
     ];
 
-    this.submitted = false;
+    this.date = new Date;
+    this.clicked = false;
 
     this.reportForm = new FormGroup ({
-      atype: new FormControl('', [Validators.required]),
+      atype: new FormControl('none', [Validators.required]),
       action: new FormControl('', [Validators.required, Validators.maxLength(200)])
+      // date: new Date.format('YYYY-MM-DD')
   })
 
    }
 
    logEncounter(){
-     this.submitted = true;
+     this.clicked = true;
      console.log(this.reportForm);
+     console.log(this.date);
    }
 
   ngOnInit() {

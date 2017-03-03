@@ -8,8 +8,7 @@
     <section class="encounters-list-wrapper">
       <ul class="encounters-list">
         <li *ngFor="let encounter of encounters">
-          <p class="alien-type">{{ encounter.atype }}</p>
-          <p class="encounter-text"> {{ encounter.action }}</p>
+          {{ encounter.atype }}{{ encounter.action }}
         </li>
       </ul>
     </section>

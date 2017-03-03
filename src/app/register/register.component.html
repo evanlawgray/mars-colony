@@ -3,19 +3,22 @@
     <h1 class="page-header">Register</h1>
 
 
-    <form class="form-container" [formGroup]="registerForm" [ngClass]="{'flashing-input': submitted}">
+    <form class="form-container" 
+          [formGroup]="registerForm" 
+          [ngClass]="{'flashing-input': clicked}"
+          (ngSubmit)="postNewColonist($event)">
       <fieldset class="registration-form">
-        <input type=text id=name-input placeholder="Name" require formControlName="name" name="name"/>
-        <input type="number" id=age-input placeholder="Age" required formControlName="age" name="age"/>
-        <select required formControlName="job_id" name="job_id">        
+        <input type=text id=name-input placeholder="Name" formControlName="name" name="name"/>
+        <input type="number" id=age-input placeholder="Age" formControlName="age" name="age"/>
+        <select formControlName="job_id" name="job_id">        
           <option value="none" disabled selected>Select occupation</option>
           <option *ngFor="let job of marsJobs" value="{{job.id}}">{{ job.name }}</option>
         </select>
       </fieldset>
+      <fieldset>
+      <button type="submit" href="/encounters" class="check-in">Check in</button>
+      </fieldset>
     </form>
 
-    <button (click)="logColonist()"></button>
-
-    <button type="submit" href="/encounters"class="check-in">Check in</button>
   </div>  
 </div>
