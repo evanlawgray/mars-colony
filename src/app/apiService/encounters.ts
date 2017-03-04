@@ -26,7 +26,7 @@ export class EncountersAPIService {
     saveNewEncounter(newEncounter: EncounterPostRequest): Observable<Encounter> {
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post(ENCOUNTERS_URL, { headers })
+        return this.http.post(ENCOUNTERS_URL, newEncounter, { headers })
                         .map((res: Response) => res.json());
 
     }

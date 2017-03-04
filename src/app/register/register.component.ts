@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NewColonist, Job } from '../models';
+import { Colonist, NewColonist, Job } from '../models';
+import { Router } from '@angular/router';
 import { 
   FormGroup,
   FormControl,
@@ -34,8 +35,8 @@ export class RegisterComponent implements OnInit {
 
   public fakeColonist;
 
-  constructor(private colonistApiService: ColonistAPIService, private jobsApiService: JobsAPIService) { 
-    //TODO: call API, get jobs.
+  constructor(private colonistApiService: ColonistAPIService, private jobsApiService: JobsAPIService, private router: Router) { 
+ 
 
     this.clicked = false;
 
@@ -68,7 +69,7 @@ export class RegisterComponent implements OnInit {
     
     if(this.registerForm.invalid) {
       this.clicked = true;
-     
+      return;
 
     } else {
       const name = this.registerForm.get('name').value;
@@ -79,9 +80,11 @@ export class RegisterComponent implements OnInit {
       console.log(newColonist);
       this.colonistApiService.saveColonist({ colonist: newColonist})
                              .subscribe((result) => {
-                               console.log('Colonist was saved:', result);
-                             });
+                             localStorage.setItem("colonist_id", JSON.stringify(result.id));
+                             this.router.navigate(['encounters']);
+                             });        
     }
+    
   }
 
   getMarsJobs() {

@@ -1,30 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { NewEncounter, Alien, Colonist } from '../models';
+import { Router } from '@angular/router';
 
-import { REPORT_URL } from '../models/API';
+import {RegisterComponent} from '../register/register.component';
+
+import { REPORT_URL, ENCOUNTERS_URL } from '../models/API';
 import { AliensAPIService } from '../apiService/aliens';
+import { EncountersAPIService } from '../apiService/encounters';
 
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.scss'],
-  providers: [AliensAPIService]
+  providers: [AliensAPIService, EncountersAPIService]
 })
 export class ReportComponent implements OnInit {
   newEncounter: NewEncounter;
   colonist: Colonist;
   aliens: Alien[];
-  date: any;
   reportForm: FormGroup;
   clicked: boolean;
 
 
-  constructor(private aliensApiService: AliensAPIService) {
+  constructor(private aliensApiService: AliensAPIService, private encountersApiService: EncountersAPIService, private router: Router) {
     
     this.getAliens();
-
-    this.date = new Date;
     this.clicked = false;
 
     this.reportForm = new FormGroup ({
@@ -34,19 +35,49 @@ export class ReportComponent implements OnInit {
 
   }
 
-   logEncounter(){
-     this.clicked = true;
-     console.log(this.reportForm);
-     console.log(this.date);
-   }
-
   ngOnInit() {
+  }
+
+  getDate() {
+    const date = new Date;
+    var yy = date.getFullYear() + 1; // getMonth() is zero-based
+    var mm = date.getMonth() + 1;
+    var dt = date.getDate();
+
+    return `${yy}-${mm}-${dt}`.toString();
+ 
+  }
+
+  postNewEncounter(event) {
+    event.preventDefault();
+    
+    if(this.reportForm.invalid) {
+      this.clicked = true;
+     
+
+    } else {
+      const atype: string = this.reportForm.get('atype').value.toString();
+      const action: string = this.reportForm.get('action').value.toString();
+      const date: string = this.getDate().toString();
+      const colonist_id: string = localStorage.getItem("colonist_id").toString();
+
+      console.log(atype);
+      console.log(action);
+      console.log(date);
+      console.log(colonist_id);
+      
+      const newEncounter: NewEncounter = new NewEncounter(atype, date, action, colonist_id);
+      this.encountersApiService.saveNewEncounter({ encounter:newEncounter })
+                             .subscribe((result) => {
+                               console.log('Colonist was saved:', result);
+                               this.router.navigate(['encounters'])
+                             });
+    }
   }
 
   getAliens() {
     this.aliensApiService.fetchAliens()
                        .subscribe((result) => {
-                        console.log('Colonist was saved:', result);
                         this.aliens = result;
                        });    
   }
