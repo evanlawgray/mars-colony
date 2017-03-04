@@ -11,7 +11,7 @@
         <input type=text id=name-input placeholder="Name" formControlName="name" name="name"/>
         <input type="number" id=age-input placeholder="Age" formControlName="age" name="age"/>
         <select formControlName="job_id" name="job_id">        
-          <option value="none" disabled selected>Select occupation</option>
+          <option value="none" disabled required selected>Select occupation</option>
           <option *ngFor="let job of marsJobs" value="{{job.id}}">{{ job.name }}</option>
         </select>
       </fieldset>
