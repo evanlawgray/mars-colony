@@ -11,13 +11,15 @@ import { RegisterComponent } from './register/register.component';
 import { EncountersComponent } from './encounters/encounters.component';
 import { ReportComponent } from './report/report.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { JournalComponent } from './journal/journal.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'register', component: RegisterComponent}, 
   { path: 'encounters', component: EncountersComponent},
   { path: 'report', component: ReportComponent},
-  { path: 'notfound', component: NotfoundComponent}]
+  { path: 'notfound', component: NotfoundComponent},
+  {path: 'journal', component: JournalComponent}]
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ const routes: Routes = [
     RegisterComponent,
     EncountersComponent,
     ReportComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    JournalComponent
   ],
   imports: [
     BrowserModule,
