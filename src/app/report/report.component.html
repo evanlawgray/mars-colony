@@ -11,10 +11,11 @@
             <option *ngFor="let alien of aliens" value="{{alien.type}}">{{ alien.type }}</option>
           </select>
 
-          <textarea class="alien-type-textarea" name="alien-type-form" formControlName="action" placeholder="Action taken"></textarea> 
+          <textarea class="alien-type-textarea" name="alien-type-form" formControlName="action" placeholder="Action taken"></textarea>
+          
+          <button (click)="postNewEncounter($event)" type="submit" class="submit-report-button">Submit Report</button> 
         </form>
 
-        <button (click)="postNewEncounter($event)" type="submit" class="submit-report-button">Submit Report</button>
     </div>
   </div>
 </div>

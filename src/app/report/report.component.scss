@@ -24,7 +24,7 @@
 
         .form-container {
             
-            height: 40%;
+            height: 100%;
             width: 95%;
             display: flex;
             flex-direction: column;
@@ -32,9 +32,13 @@
             align-items: center;
 
              form {
-                height: auto;
+                height: 100%;
                 width: 100%;
                 margin: 0.5rem auto 4rem;
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: space-around;
+                align-items: center;
 
                 select {
                     height: 38px;
@@ -108,13 +112,16 @@
             font-size: 2.35rem;
             font-weight: 100;
             text-align: center;
-            animation: button-flasher 1.55s linear infinite 0.2s;
 
             &:hover {
                 cursor: pointer;
             }
         }
     }
+}
+
+form.ng-dirty.ng-valid button {
+    animation: button-flasher 1.55s linear infinite 0.2s;
 }
 
 @keyframes button-flasher {
