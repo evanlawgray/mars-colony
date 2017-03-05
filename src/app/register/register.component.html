@@ -15,17 +15,19 @@
           <option *ngFor="let job of marsJobs" value="{{job.id}}">{{ job.name }}</option>
         </select>
       </fieldset>
-      <p *ngIf="loadingJobs === true" class="check-in">Loading...</p>
-      <p *ngIf="loadingJobs === false" class="check-in">Check in</p>
       <fieldset class="sign-in">
-        <button type="submit" (click)="postNewColonist($event)">
-          <div class="loader-gif">  
+        <button type="submit" 
+                (click)="postNewColonist($event)">
+          <p *ngIf="loadingJobs === true" class="check-in loading">Loading...</p>
+          <p *ngIf="loadingJobs === false"
+             class="check-in"
+             [ngClass]="{'flashing-button': !loadingJobs}">
+             Check in</p>
+          <div *ngIf="loadingJobs ===true" class="loader-gif">  
           </div>
         </button>
       </fieldset>
-      <!--<fieldset>
-      <button type="submit" class="check-in">Check in</button>
-      </fieldset>-->
+
     </form>
 
   </div>  

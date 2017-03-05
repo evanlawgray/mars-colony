@@ -34,7 +34,7 @@
              form {
                 height: auto;
                 width: 100%;
-                margin: 0.5rem auto;
+                margin: 0.5rem auto 4rem;
 
                 select {
                     height: 38px;
@@ -54,6 +54,10 @@
                     -webkit-border-radius: 0px;
                 }
 
+                select.ng-dirty {
+                    color: white;
+                }
+
                 textarea {
                     box-sizing: border-box;
                     height: 195px;
@@ -64,23 +68,65 @@
                     color: #ED4343;
 
                 }
+
+                textarea.ng-dirty {
+                    color: black;
+                    font-weight: 500;
+                }
+
+                ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+                    color: #ED4343;
+                    opacity: 1;
+                    font-size: 1.15rem;
+                }
+                :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                    color: #ED4343;
+                    opacity: 1;
+                    font-size: 1.15rem;
+                }
+                ::-moz-placeholder { /* Mozilla Firefox 19+ */
+                    color: #ED4343;
+                    opacity:  1;
+                    font-size: 1.15rem;
+                }
+                :-ms-input-placeholder { /* Internet Explorer 10-11 */
+                    color: #ED4343;
+                    opacity: 1;
+                    font-size: 1.15rem;
+                }
             }
         }
 
         .submit-report-button {
-            height: 26%;
-            width: 100%;
-            margin-top: 3rem;
+            height: auto;
+            min-height: 110px;
+            width: 40%;
             border: none;
+            border-radius: 5px;
             color: white;
             background: black;
             font-size: 2.35rem;
             font-weight: 100;
             text-align: center;
+            animation: button-flasher 1.55s linear infinite 0.2s;
 
             &:hover {
                 cursor: pointer;
             }
         }
+    }
+}
+
+@keyframes button-flasher {
+    0% {
+        color: #FDFFFA;
+        box-shadow: 0px 0px 55px 0px #094259;
+    }
+
+    85% {
+        box-shadow: 0px 0px 75px 50px black;
+    }
+    100% {
+        color: #ED4343;
     }
 }

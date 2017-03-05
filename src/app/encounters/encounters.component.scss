@@ -73,13 +73,13 @@
             justify-content: center;
 
             .report-encounter-button {
-                height: 20%;
+                height: 25%;
                 min-height: 40px;
                 width: auto;
-                min-width: 275px;
+                min-width: 325px;
                 margin: 0 auto;
                 border: none;
-                border-radius: 15px;
+                border-radius: 5px;
                 color: white;
                 background: black;
                 font-size: 2.35rem;
@@ -90,7 +90,7 @@
                 align-items: center;
                 position: relative;
                 z-index: 2;
-                animation: text-flasher 1.55s infinite 0.2s;
+                animation: button-flasher 1.55s linear infinite 0.2s;
 
                 &:hover {
                     cursor: pointer;
@@ -100,15 +100,17 @@
     }
 }
 
-@keyframes text-flasher {
+@keyframes button-flasher {
     0% {
-        color: white;
-        box-shadow: 0px 0px 55px 7px #094259;
+        color: #FDFFFA;
+        box-shadow: 0px 0px 55px 0px #094259;
+    }
+
+    85% {
+        box-shadow: 0px 0px 75px 50px black;
     }
     100% {
         color: #ED4343;
-        box-shadow: 0px 0px 75px 50px black;
     }
-
 }
 
