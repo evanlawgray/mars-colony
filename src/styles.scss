@@ -56,9 +56,14 @@ table {
 }
 
 body, html {
-	max-height: 100vh;
-	max-width: 100vw;
+	height: 100vh;
+	width: 100vw;
     font-family: 'Roboto', Arial, serif;
     font-weight: 100;
     color: #FFF;
+
+	.page {
+		max-height: 100%;
+		max-width: 100%;
+	}
 }

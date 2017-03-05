@@ -20,8 +20,7 @@
                 (click)="postNewColonist($event)">
           <p *ngIf="loadingJobs === true" class="check-in loading">Loading...</p>
           <p *ngIf="loadingJobs === false"
-             class="check-in"
-             [ngClass]="{'flashing-button': !loadingJobs}">
+             class="check-in">
              Check in</p>
           <div *ngIf="loadingJobs ===true" class="loader-gif">  
           </div>
