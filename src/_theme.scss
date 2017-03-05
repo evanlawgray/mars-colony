@@ -1,3 +1,9 @@
 // Variables
 
 $red-text-color: #ED4343;
+
+// Mixins
+
+@mixin button-flasher-animation(){
+    animation: button-flasher 1.55s linear infinite 0.2s;
+}

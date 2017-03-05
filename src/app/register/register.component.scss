@@ -42,7 +42,6 @@
                     border-radius: 0;
                     font-size: 1.15rem;
                     background-color: black;
-                    color: #ED4343;
                 }
 
                 input.ng-dirty, select.ng-dirty {
@@ -61,21 +60,6 @@
                     border-radius: 0px;
                     -webkit-appearance: none;
                     -webkit-border-radius: 0px;
-                }
-
-                ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-                    color: #ED4343;
-                }
-                :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-                    color: #ED4343;
-                    opacity:  1;
-                }
-                ::-moz-placeholder { /* Mozilla Firefox 19+ */
-                    color: #ED4343;
-                    opacity:  1;
-                }
-                :-ms-input-placeholder { /* Internet Explorer 10-11 */
-                    color: #ED4343;
                 }
             }
         }

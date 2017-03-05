@@ -65,5 +65,24 @@ body, html {
 	.page {
 		max-height: 100%;
 		max-width: 100%;
+
+		input[type="text"], input[type="number"], select, textarea {
+			color: $red-text-color;
+		}
+
+		::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+			color: $red-text-color;
+		}
+		:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+			color: $red-text-color;
+			opacity:  1;
+		}
+		::-moz-placeholder { /* Mozilla Firefox 19+ */
+			color: $red-text-color;
+			opacity:  1;
+		}
+		:-ms-input-placeholder { /* Internet Explorer 10-11 */
+			color: $red-text-color;
+		}
 	}
 }
