@@ -13,7 +13,7 @@
 
         .page-header {
             font-size: 2.35rem;
-            font-weight: lighter;
+            font-weight: 100;
         }
 
         .form-container {
@@ -90,7 +90,6 @@
         height: auto;
         width: 30%;
         min-width: 250px;
-        border-radius: 10px;
         background: none;
         margin: 0 auto;
         border: none;
@@ -106,17 +105,18 @@
             width: 100%;
             height: auto;
             min-height: 110px;
+            margin: 0 auto;
+            border: none;
+            border-radius: 10px;
+            background: none;
+            color: white;
+            font-size: 2.25rem;
+            font-weight: 100;
+            letter-spacing: 1px;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            margin: 0 auto;
-            font-size: 2.25rem;
-            background: none;
-            border: none;
-            color: white;
-            font-weight: 100;
-            letter-spacing: 1px;
             
             &:hover {
                 cursor: pointer;
@@ -139,7 +139,7 @@
     }
 }
 
-.flashing-button {
+form.ng-valid .check-in {
     animation: button-flasher 1.55s linear infinite 0.2s;
 }
 

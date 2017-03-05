@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
     this.registerForm = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.maxLength(100)]),
       age: new FormControl('',[Validators.required, this.acceptAge(18, 50)]),
-      job_id: new FormControl('none', [Validators.required])
+      job_id: new FormControl('none', [Validators.required, Validators.pattern(/^\d+$/)])
   });
    
 }
