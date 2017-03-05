@@ -13,8 +13,10 @@ import { EncountersAPIService } from '../apiService/encounters';
 export class EncountersComponent implements OnInit {
   encounters: Encounter[];
   encountersAPIService: EncountersAPIService;
+  loadingEncounters: boolean;
 
-  constructor(private encountersApiService: EncountersAPIService) { 
+  constructor(private encountersApiService: EncountersAPIService) {
+    this.loadingEncounters = true; 
     this.fetchEncounters();
   }
 
@@ -24,6 +26,7 @@ export class EncountersComponent implements OnInit {
   fetchEncounters() {
     this.encountersApiService.fetchEncounters()
                        .subscribe((result) => {
+                        this.loadingEncounters = false;
                         this.encounters = result;
                        });    
   }

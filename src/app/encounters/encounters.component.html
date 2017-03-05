@@ -6,6 +6,7 @@
     </div>
 
     <section class="encounters-list-wrapper">
+      <div *ngIf="loadingEncounters === true" class="encounters-loader-gif"></div>
       <ul class="encounters-list">
         <li *ngFor="let encounter of encounters">
           {{  encounter.date }} - {{ encounter.atype }}
@@ -13,6 +14,8 @@
         </li>
       </ul>
     </section>
-    <button routerLink="/report" routerLinkActive="active" class="report-encounter-button">Report Encounter</button>
+    <div class="report-button-wrapper">
+      <button routerLink="/report" routerLinkActive="active" class="report-encounter-button">Report Encounter</button>
+    </div>
   </div>
 </div>
