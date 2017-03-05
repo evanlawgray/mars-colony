@@ -32,13 +32,18 @@ export class RegisterComponent implements OnInit {
   clicked: boolean;
   colonistAPIService: ColonistAPIService;
   jobsAPIService: JobsAPIService;
+  loadingJobs: boolean;
+  jobsRequestFailed: boolean;
 
   public fakeColonist;
 
-  constructor(private colonistApiService: ColonistAPIService, private jobsApiService: JobsAPIService, private router: Router) { 
+  constructor(private colonistApiService: ColonistAPIService,
+              private jobsApiService: JobsAPIService,
+              private router: Router) { 
  
 
     this.clicked = false;
+    this.loadingJobs = true;
 
     this.getMarsJobs();
 
@@ -47,7 +52,7 @@ export class RegisterComponent implements OnInit {
     this.registerForm = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.maxLength(100)]),
       age: new FormControl('',[Validators.required, this.acceptAge(18, 50)]),
-      job_id: new FormControl('none', [Validators.required, Validators.pattern(/\[0-9]/g)])
+      job_id: new FormControl('none', [Validators.required])
   });
    
 }
@@ -69,6 +74,7 @@ export class RegisterComponent implements OnInit {
     
     if(this.registerForm.invalid) {
       this.clicked = true;
+      console.log('fuck');
       return;
 
     } else {
@@ -77,22 +83,22 @@ export class RegisterComponent implements OnInit {
       const job_id = this.registerForm.get('job_id').value;
 
       const newColonist = new NewColonist (name, age, job_id);
-      console.log(newColonist);
       this.colonistApiService.saveColonist({ colonist: newColonist})
                              .subscribe((result) => {
+                             console.log(result);
+                             this.clicked = true;
                              localStorage.setItem("colonist_id", JSON.stringify(result.id));
                              this.router.navigate(['encounters']);
                              });        
-    }
-    
+    }  
   }
 
   getMarsJobs() {
     this.jobsApiService.fetchJobs()
                        .subscribe((result) => {
-                        console.log('Colonist was saved:', result);
+                        this.loadingJobs = false;
                         this.marsJobs = result;
                        });    
- }
+  }
 
 }

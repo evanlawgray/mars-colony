@@ -23,7 +23,10 @@ export class ReportComponent implements OnInit {
   clicked: boolean;
 
 
-  constructor(private aliensApiService: AliensAPIService, private encountersApiService: EncountersAPIService, private router: Router) {
+  constructor(
+    private aliensApiService: AliensAPIService,
+    private encountersApiService: EncountersAPIService,
+    private router: Router) {
     
     this.getAliens();
     this.clicked = false;
@@ -69,7 +72,6 @@ export class ReportComponent implements OnInit {
       const newEncounter: NewEncounter = new NewEncounter(atype, date, action, colonist_id);
       this.encountersApiService.saveNewEncounter({ encounter:newEncounter })
                              .subscribe((result) => {
-                               console.log('Colonist was saved:', result);
                                this.router.navigate(['encounters'])
                              });
     }
