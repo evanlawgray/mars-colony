@@ -1,3 +1,5 @@
+@import '../../_theme.scss';
+
 .report-page {
     height: 100vh;
     width: 100vw;
@@ -7,15 +9,11 @@
     .report-page-wrapper {
         height: 100%;
         width: 100%;
-        padding-top: 2.35rem;
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: flex-start;
-        align-items: center;
+        padding-top: $page-top-padding;
+        @include flex-column(flex-start);
 
         .page-header {
-            font-size: 2.35rem;
-            margin-bottom: 0.1rem;
+            @include page-header();
         }
 
         .report-encounter-text {
@@ -26,36 +24,18 @@
             
             height: 100%;
             width: 95%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
+            @include flex-column(space-between);
 
              form {
                 height: 100%;
                 width: 100%;
                 margin: 0.5rem auto 4rem;
-                display: flex;
-                flex-flow: column nowrap;
-                justify-content: flex-start;
-                align-items: center;
+                @include flex-column(flex-start);
 
                 select {
-                    height: 38px;
-                    width: 100%;
-                    margin-top: 1.5rem;
                     margin-bottom: 1.15rem;
-                    padding-left: 0.5rem;
-                    border: 0;
-                    border-bottom: 1.5px solid white;
-                    border-radius: 0;
-                    font-size: 1.15rem;
-                    background-color: black;
-                    color: #ED4343;
                     appearance: none;
-                    border-radius: 0px;
                     -webkit-appearance: none;
-                    -webkit-border-radius: 0px;
                 }
 
                 select.ng-dirty {
@@ -63,16 +43,12 @@
                 }
 
                 textarea {
-                    box-sizing: border-box;
                     height: 195px;
                     width: 100%;
                     padding: 0.5rem 0.5rem;
                     border: none;
                     font-size: 1rem;
-                    color: #ED4343;
-
                 }
-
                 textarea.ng-dirty {
                     color: black;
                     font-weight: 500;
@@ -86,10 +62,10 @@
             width: 40%;
             margin-top: 1.5rem;
             border: none;
-            border-radius: 5px;
+            border-radius: $button-border-radius;
             color: white;
             background: black;
-            font-size: 2.35rem;
+            font-size: 2.15rem;
             font-weight: 100;
             text-align: center;
 
@@ -100,8 +76,22 @@
     }
 }
 
+.ng-invalid.flashing-input textarea.ng-pristine.ng-invalid, .ng-invalid.flashing-input select.ng-pristine {
+    @include input-flasher-animation();
+}
+
 form.ng-dirty.ng-valid button {
-    animation: button-flasher 1.55s linear infinite 0.2s;
+    @include button-flasher-animation;
+}
+
+@keyframes input-flasher {
+    0% {
+        box-shadow: 0px 0px 0px 0px #ED4343;
+    }
+    100% {
+        box-shadow: 0px 0px 0px 11px black;
+    }
+
 }
 
 @keyframes button-flasher {

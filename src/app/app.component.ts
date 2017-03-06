@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
     <a routerLink="/encounters">encounters page</a>
     <a routerLink="/report">report encounters page</a>
     <a routerLink="/notfound">404 not found page</a>
+    <a routerLink="/journal">Journal page</a>
     <div class="page">
       <router-outlet></router-outlet>
     </div>

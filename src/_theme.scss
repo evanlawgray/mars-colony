@@ -4,19 +4,26 @@ $red-text-color: #ED4343;
 
 $page-top-padding: 2.35rem;
 
+$button-border-radius: 10px;
+
 // Mixins
 
 @mixin button-flasher-animation(){
     animation: button-flasher 1.55s linear infinite 0.2s;
 }
 
-@mixin mars-sunrise-background() {
-    background: linear-gradient(#333333 0%, #604444 20%, #955858 50%, #E47676 100%)
+@mixin input-flasher-animation(){
+    animation: input-flasher 0.55s infinite;
+}
+
+@mixin mars-sunrise-background($start-color: #333333) {
+    background: linear-gradient($start-color 0%, #604444 20%, #955858 50%, #E47676 100%)
 }
 
 @mixin page-header() {
     font-size: 2.3rem;
     font-weight: 100;
+    margin-bottom: 0.1rem;
 }
 
 @mixin flex-column($justify-content) {

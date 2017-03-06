@@ -12,3 +12,4 @@ export const COLONIST_URL = 'https://red-wdp-api.herokuapp.com/api/mars/colonist
 export const REPORT_URL = 'https://red-wdp-api.herokuapp.com/api/mars/encounters';
 export const JOBS_URL = 'https://red-wdp-api.herokuapp.com/api/mars/jobs';
 export const ENCOUNTERS_URL = 'https://red-wdp-api.herokuapp.com/api/mars/encounters';
+export const JOURNAL_URL = 'http://fourth.academy.red/wp-json/wp/v2/';

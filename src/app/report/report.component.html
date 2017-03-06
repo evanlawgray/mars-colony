@@ -4,7 +4,7 @@
     <p class="report-encounter-text">Safety on Mars is Your Responsibility</p>
 
     <div class="form-container">
-        <form id="form" [formGroup]="reportForm" [ngClass]="{'flashing-input':submitted}">
+        <form id="form" [formGroup]="reportForm" [ngClass]="{'flashing-input':clicked}">
 
           <select formControlName="atype" name="atype">
             <option value="none" disabled selected>Select alien type</option>

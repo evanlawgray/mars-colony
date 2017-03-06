@@ -1,36 +1,35 @@
+@import '../../_theme.scss';
+
 .report-page {
     height: 100vh;
     width: 100vw;
-    background: white;
+    background: black;
     color: black;
 
     .report-page-wrapper {
         height: 100%;
         width: 100%;
         padding-top: 2.35rem;
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: flex-start;
-        align-items: center;
+        @include flex-column(flex-start);
 
         .page-header {
             height: 12.5%;
             width: 100%;
-            background: white;
+            background: black;
             text-align: center;
 
-            .page-title {
-                font-size: 2.35rem;
-                margin-bottom: 0.1rem;
+            h1{
+                height: 100%;
+                color: white;
+                @include page-header;
             }
         }
 
-        .encounters-list-wrapper {
-            box-sizing: border-box;
+        .posts-list-wrapper {
             height: 56.5%;
             width: 100%;
             padding: 1rem 1rem 2rem 1rem;
-            background: white;
+            @include mars-sunrise-background;
             font-size: 1.1rem;
             overflow: scroll;
             text-align: left;
@@ -39,7 +38,7 @@
                 height: 20px;
             }
 
-            .encounters-loader-gif {
+            .journal-loader-gif {
                 height: 200px;
                 width: 200px;
                 margin: 0 auto;
@@ -47,16 +46,22 @@
                 background-size: 35%;
             }
 
-            .encounters-list {
+            .posts-list {
                 height: 100%;
                 width: 100%;
-                background: white;
                 margin: 0 auto;
-                // background: linear-gradient(red 0%, gray 100%);
                 list-style-type: none;
 
                 li {
                     margin-bottom: 1rem;
+                    color: white;
+
+                    h2 {
+                        margin-bottom: 0.75rem;
+                        font-size: 2rem;
+                        font-weight: 500;
+                        color: #FFF58A
+                    }
 
                     .encounter-action-text {
                         display: block;
@@ -64,36 +69,27 @@
                 }
             }
         }
-        .report-button-wrapper {
-            height: 26%;
+
+        .return-button-wrapper {
+            height: 31%;
             width: 100%;
             background: black;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            @include flex-column(center);
 
-            .report-encounter-button {
-                height: 25%;
-                min-height: 40px;
-                width: auto;
-                min-width: 325px;
+            .return-button {
+                height: 100%;
+                width: 100%;
                 margin: 0 auto;
                 border: none;
-                border-radius: 5px;
                 color: white;
                 background: black;
-                font-size: 2.35rem;
+                font-size: 2.05rem;
                 font-weight: 100;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-end;
-                align-items: center;
-                position: relative;
-                z-index: 2;
-                animation: button-flasher 1.55s linear infinite 0.2s;
+                @include flex-column(center);
 
                 &:hover {
                     cursor: pointer;
+                    @include button-flasher-animation();
                 }
             }
         }
@@ -103,11 +99,11 @@
 @keyframes button-flasher {
     0% {
         color: #FDFFFA;
-        box-shadow: 0px 0px 55px 0px #094259;
+        box-shadow: inset 0px -1px 85px 15px #094259;
     }
 
     85% {
-        box-shadow: 0px 0px 75px 50px black;
+        box-shadow: inset 0px -1px 185px 40px black;
     }
     100% {
         color: #ED4343;

@@ -1,21 +1,21 @@
 <div class="report-page">
   <div class="report-page-wrapper">
     <div class="page-header">
-      <h1 class="page-title">Recent Encounters</h1>
-      <p>Seen an Alien? Report it!</p>
+      <h1 class="page-title">Commander's Log</h1>
+      <p>Shouting into the void...</p>
     </div>
 
-    <section class="encounters-list-wrapper">
-      <div *ngIf="loadingEncounters === true" class="encounters-loader-gif"></div>
-      <ul class="encounters-list">
-        <li *ngFor="let encounter of encounters">
-          {{  encounter.date }} - {{ encounter.atype }}
-          <span class="encounter-action-text">{{ encounter.action }}</span>
+    <section class="posts-list-wrapper">
+      <div *ngIf="loadingPosts === true" class="journal-loader-gif"></div>
+      <ul class="posts-list">
+        <li *ngFor="let post of posts">
+          <h2>{{ post.title.rendered }}</h2>
+          {{ post.content.rendered }}
         </li>
       </ul>
     </section>
-    <div class="report-button-wrapper">
-      <button routerLink="/report" routerLinkActive="active" class="report-encounter-button">Report Encounter</button>
+    <div class="return-button-wrapper">
+      <button routerLink="/encounters" routerLinkActive="active" class="return-button">Return</button>
     </div>
   </div>
 </div>

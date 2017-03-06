@@ -51,3 +51,7 @@ export interface Alien {
     id: number;
     description: string;
 }
+
+export interface Post {
+    content: {rendered: string};
+}

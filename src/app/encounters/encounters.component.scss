@@ -9,13 +9,9 @@
     .report-page-wrapper {
         height: 100%;
         width: 100%;
-        padding-top: 2.35rem;
+        padding-top: $page-top-padding;
         background: black;
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: flex-start;
-        align-items: center;
-
+        @include flex-column(flex-start);
         .page-header {
             height: 12.5%;
             width: 100%;
@@ -24,17 +20,14 @@
             text-align: center;
 
             .page-title {
-                font-size: 2.35rem;
-                margin-bottom: 0.1rem;
+                @include page-header();
             }
         }
 
         .encounters-list-wrapper {
-            box-sizing: border-box;
             height: 56.5%;
             width: 100%;
-            padding: 1rem 1rem 2rem 1rem;
-            background: linear-gradient(#CF412C 0%, gray 70%, gray 100%);
+            @include mars-sunrise-background();
             font-size: 1.1rem;
             overflow: scroll;
             text-align: left;
@@ -54,8 +47,10 @@
             .encounters-list {
                 height: auto;
                 width: 100%;
-                background: none;
                 margin: 0 auto;
+                padding: 1rem 1rem 2rem 1rem;
+                @include mars-sunrise-background(black);
+                color: white;
                 list-style-type: none;
 
                 li {
@@ -63,6 +58,8 @@
                     margin-bottom: 1rem;
 
                     .encounter-action-text {
+                        margin-top: 0.5rem;
+                        color: #FFF58A;
                         display: block;
                     }
                 }
@@ -72,9 +69,7 @@
             height: 31%;
             width: 100%;
             background: black;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            @include flex-column(center);
 
             .report-encounter-button {
                 height: 100%;
@@ -83,17 +78,14 @@
                 border: none;
                 color: white;
                 background: black;
-                font-size: 2.35rem;
+                font-size: 2.15rem;
                 font-weight: 100;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
+                @include flex-column(center);
                 animation: none;
 
                 &:hover {
                     cursor: pointer;
-                    animation: button-flasher 1.55s linear infinite 0.2s;
+                    @include button-flasher-animation();
                 }
             }
         }
@@ -103,11 +95,11 @@
 @keyframes button-flasher {
     0% {
         color: #FDFFFA;
-        box-shadow: inset 0px 0px 85px 20px #094259;
+        box-shadow: inset 0px -1px 85px 15px #094259;
     }
 
     85% {
-        box-shadow: inset 0px 0px 135px 50px black;
+        box-shadow: inset 0px -1px 185px 40px black;
     }
     100% {
         color: #ED4343;

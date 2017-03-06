@@ -1,0 +1,55 @@
+//_________*************  Global Styles ************_________________\\
+
+* {
+	box-sizing: border-box;
+}
+
+body, html {
+	height: 100vh;
+	width: 100vw;
+    font-family: 'Roboto', Arial, serif;
+    font-weight: 100;
+    color: #FFF;
+
+	.page {
+		max-height: 100%;
+		max-width: 100%;
+
+		input[type="text"], input[type="number"], select, textarea {
+			color: $red-text-color;
+		}
+
+		input[type="text"], input[type="number"], select{
+			height: 40px;
+			width: 100%;
+			margin-top: 1.5rem;
+			padding-left: 0.5rem;
+			border: 0px;
+			border-bottom: 1.5px solid white;
+			border-radius: 0;
+			font-size: 1.15rem;
+			background-color: black;
+			appearance: none;
+            -webkit-appearance: none;
+		}
+
+		input.ng-dirty, select.ng-dirty {
+			color: white;
+		}
+
+		::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+			color: $red-text-color;
+		}
+		:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+			color: $red-text-color;
+			opacity:  1;
+		}
+		::-moz-placeholder { /* Mozilla Firefox 19+ */
+			color: $red-text-color;
+			opacity:  1;
+		}
+		:-ms-input-placeholder { /* Internet Explorer 10-11 */
+			color: $red-text-color;
+		}
+	}
+}

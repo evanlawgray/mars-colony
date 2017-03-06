@@ -16,7 +16,7 @@
 
         form {
             height: auto;
-            width: 93%;
+            width: 95%;
             padding: 0.5rem 0rem;
             margin-bottom: 10rem;
 
@@ -26,10 +26,6 @@
                 margin: 0 auto 8rem;
                 border: none;
                 @include flex-column(space-between);
-
-                input.ng-dirty, select.ng-dirty {
-                    color: white;
-                }
 
                 select {
                     appearance: none;
@@ -51,21 +47,19 @@
         background: none;
         margin: 0 auto;
         border: none;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: stretch;
+        @include flex-column(center);
         
         &:hover {
             cursor: pointer;
         }
         .check-in {
             width: 100%;
+            min-width: 250px;
             height: auto;
             min-height: 110px;
             margin: 0 auto;
             border: none;
-            border-radius: 10px;
+            border-radius: $button-border-radius;
             background: none;
             color: white;
             font-size: 2.25rem;
@@ -99,11 +93,11 @@
 }
 
 form.ng-valid .check-in {
-    animation: button-flasher 1.55s linear infinite 0.2s;
+    @include button-flasher-animation();
 }
 
 .ng-invalid.flashing-input fieldset input.ng-invalid, .ng-invalid.flashing-input fieldset select.ng-pristine {
-    animation: input-flasher 0.55s infinite;
+    @include input-flasher-animation();
 }
 
 @keyframes input-flasher {
