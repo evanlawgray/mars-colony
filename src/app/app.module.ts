@@ -13,6 +13,7 @@ import { ReportComponent } from './report/report.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { JournalComponent } from './journal/journal.component';
 
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'register', component: RegisterComponent}, 
@@ -29,7 +30,7 @@ const routes: Routes = [
     EncountersComponent,
     ReportComponent,
     NotfoundComponent,
-    JournalComponent
+    JournalComponent,
   ],
   imports: [
     BrowserModule,
