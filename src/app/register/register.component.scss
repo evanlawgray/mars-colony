@@ -1,3 +1,5 @@
+@import '../../_theme.scss';
+
 .register-page {
     height: 100vh;
     width: 100vw;
@@ -5,18 +7,14 @@
 
     .register-page-wrapper {
         height: 100%;
-        padding-top: 2.35rem;
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: flex-start;
-        align-items: center;
+        padding-top: $page-top-padding;
+        @include flex-column(flex-start);
 
-        .page-header {
-            font-size: 2.35rem;
-            font-weight: 100;
+        h1 {
+            @include page-header();
         }
 
-        .form-container {
+        form {
             height: auto;
             width: 93%;
             padding: 0.5rem 0rem;
@@ -25,41 +23,17 @@
             .registration-form {
                 height: auto;
                 width: 100%;
-                margin: 0 auto 6rem;
+                margin: 0 auto 8rem;
                 border: none;
-                display: flex;
-                flex-flow: column nowrap;
-                justify-content: space-between;
-                align-items: center;
-
-                input[type="text"], input[type="number"], select{
-                    box-sizing: border-box; 
-                    height: 50px;
-                    width: 100%;
-                    margin-top: 1.5rem;
-                    border: 0px;
-                    border-bottom: 1.5px solid white;
-                    border-radius: 0;
-                    font-size: 1.15rem;
-                    background-color: black;
-                }
+                @include flex-column(space-between);
 
                 input.ng-dirty, select.ng-dirty {
                     color: white;
                 }
 
-                input[type="text"], input[type="number"] {
-                    margin-top: 0.75rem;
-                    padding: 0.75rem 0 0 0.5rem;
-                }
-
                 select {
-                    height: 40px;
-                    padding-left: 0.35rem;
                     appearance: none;
-                    border-radius: 0px;
                     -webkit-appearance: none;
-                    -webkit-border-radius: 0px;
                 }
             }
         }
@@ -108,6 +82,7 @@
         }
 
         .loading {
+            margin-top: 10%;
             padding-left: 0.5rem;
         }
 
@@ -116,7 +91,7 @@
             width: 100%;
             min-width: 220px;
             max-width: 400px;
-            margin: 0 auto;
+            margin: 20% auto;
             background: url("../../assets/images/futuristic-loader.gif") no-repeat center;
             background-size: 120%;
         }

@@ -1,3 +1,6 @@
+//_________*************  CSS RESET ************_________________\\
+
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -49,7 +52,7 @@ table {
 	border-spacing: 0;
 }
 
-// My global styles
+//_________*************  CSS RESET ************_________________\\
 
 * {
 	box-sizing: border-box;
@@ -68,6 +71,18 @@ body, html {
 
 		input[type="text"], input[type="number"], select, textarea {
 			color: $red-text-color;
+		}
+		
+		input[type="text"], input[type="number"], select{
+			height: 40px;
+			width: 100%;
+			margin-top: 1.5rem;
+			padding-left: 0.5rem;
+			border: 0px;
+			border-bottom: 1.5px solid white;
+			border-radius: 0;
+			font-size: 1.15rem;
+			background-color: black;
 		}
 
 		::-webkit-input-placeholder { /* WebKit, Blink, Edge */

@@ -7,7 +7,7 @@
           [formGroup]="registerForm" 
           [ngClass]="{'flashing-input': clicked}"
           (ngSubmit)="postNewColonist($event)">
-      <fieldset class="registration-form">
+      <fieldset class="registration-form" *ngIf="loadingJobs === false">
         <input type=text id=name-input placeholder="Name" formControlName="name" name="name"/>
         <input type="number" id=age-input placeholder="Age" formControlName="age" name="age"/>
         <select formControlName="job_id" name="job_id">        
