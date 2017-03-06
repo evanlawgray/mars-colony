@@ -43,7 +43,7 @@ export class ReportComponent implements OnInit {
 
   getDate() {
     const date = new Date;
-    var yy = date.getFullYear() + 1; // getMonth() is zero-based
+    var yy = date.getFullYear() + 1; 
     var mm = date.getMonth() + 1;
     var dt = date.getDate();
 
@@ -62,13 +62,10 @@ export class ReportComponent implements OnInit {
       const atype: string = this.reportForm.get('atype').value.toString();
       const action: string = this.reportForm.get('action').value.toString();
       const date: string = this.getDate().toString();
-      const colonist_id: string = localStorage.getItem("colonist_id").toString();
+      const colonist: string = localStorage.getItem("colonist");
+      const colonistObject: Colonist = JSON.parse(colonist);
+      const colonist_id:string = colonistObject.id.toString();
 
-      console.log(atype);
-      console.log(action);
-      console.log(date);
-      console.log(colonist_id);
-      
       const newEncounter: NewEncounter = new NewEncounter(atype, date, action, colonist_id);
       this.encountersApiService.saveNewEncounter({ encounter:newEncounter })
                              .subscribe((result) => {

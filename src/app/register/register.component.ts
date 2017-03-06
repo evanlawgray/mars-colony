@@ -85,9 +85,8 @@ export class RegisterComponent implements OnInit {
       const newColonist = new NewColonist (name, age, job_id);
       this.colonistApiService.saveColonist({ colonist: newColonist})
                              .subscribe((result) => {
-                             console.log(result);
                              this.clicked = true;
-                             localStorage.setItem("colonist_id", JSON.stringify(result.id));
+                             localStorage.setItem("colonist", JSON.stringify(result));
                              this.router.navigate(['encounters']);
                              });        
     }  
