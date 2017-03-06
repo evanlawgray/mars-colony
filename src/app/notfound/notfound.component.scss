@@ -1,7 +1,13 @@
+@import '../../_theme.scss';
+
 .error-page {
     height: 100vh;
     width: 100vw;
-    background: black;
+    background: linear-gradient(
+              rgba(0, 0, 0, 0.3) 0%,
+              rgba(0, 0, 0, 0.3) 100%),
+                url('../../assets/images/flying-through-space.gif') no-repeat center;
+    background-size: 100%;
     color: white;
 
     .error-page-wrapper {
@@ -24,5 +30,40 @@
             position: relative;
             bottom: 10%;
         }
+
+        .return-button {
+            height: auto;
+            min-height: 110px;
+            width: 30%;
+            margin-top: 1.5rem;
+            border: none;
+            border-radius: $button-border-radius;
+            color: white;
+            background: none;
+            font-size: 2.15rem;
+            font-weight: 100;
+            text-align: center;
+            text-decoration: none;
+            @include flex-column(center);
+
+            &:hover {
+                cursor: pointer;
+                @include button-flasher-animation();
+            }
+        }
+    }
+}
+
+@keyframes button-flasher {
+    0% {
+        color: #FDFFFA;
+        box-shadow: inset 0px 0px 55px 0px #094259;
+    }
+
+    85% {
+        box-shadow: inset 0px 0px 85px 15px #094259;
+    }
+    100% {
+        color: #ED4343;
     }
 }
