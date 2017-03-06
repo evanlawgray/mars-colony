@@ -37,11 +37,7 @@ export class JournalComponent implements OnInit {
   parsePosts(post: any) {
     let dirtyPost = post.content.rendered.toString();
     let cleanPost = dirtyPost.replace(/(<p[^>]+?>|<p>|<\/p>)/img, '');    // Remove all <p> tags"  
-
-    let cleanPostObject = {content: {rendered: cleanPost}}; 
-    this.posts.push(cleanPostObject);
-    // parsedPosts.push(cleanPost);
-    console.log(this.posts);
+    post.content.rendered = cleanPost;
   }
 
   ngOnInit() {

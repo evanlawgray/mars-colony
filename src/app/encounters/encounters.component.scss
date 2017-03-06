@@ -12,6 +12,7 @@
         padding-top: $page-top-padding;
         background: black;
         @include flex-column(flex-start);
+        
         .page-header {
             height: 12.5%;
             width: 100%;
