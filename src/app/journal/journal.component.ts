@@ -25,21 +25,10 @@ export class JournalComponent implements OnInit {
     this.journalApiService.fetchPosts()
                           .subscribe((result) => {
                           this.loadingPosts = false;
-
-                          for (const post of result) {
-                            this.parsePosts(post);
-                          }
-
                           this.posts = result;
                         });    
   }
-
-  parsePosts(post: any) {
-    let dirtyPost = post.content.rendered.toString();
-    let cleanPost = dirtyPost.replace(/(<p[^>]+?>|<p>|<\/p>)/img, '');    // Remove all <p> tags"  
-    post.content.rendered = cleanPost;
-  }
-
+  
   ngOnInit() {
   }
 

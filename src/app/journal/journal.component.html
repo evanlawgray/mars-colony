@@ -10,7 +10,7 @@
       <ul class="posts-list">
         <li *ngFor="let post of posts">
           <h2>{{ post.title.rendered }}</h2>
-          {{ post.content.rendered }}
+          <p [innerHTML]="post.content.rendered"></p>
         </li>
       </ul>
     </section>
