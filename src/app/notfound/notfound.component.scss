@@ -6,8 +6,8 @@
     background: linear-gradient(
               rgba(0, 0, 0, 0.3) 0%,
               rgba(0, 0, 0, 0.3) 100%),
-                url('../../assets/images/flying-through-space.gif') no-repeat center;
-    background-size: 100%;
+                url('../../assets/images/flying-through-space.gif') repeat-y center;
+    background-size: 180%;
     color: white;
 
     .error-page-wrapper {
