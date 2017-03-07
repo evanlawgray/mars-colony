@@ -7,7 +7,7 @@
         <form id="form" [formGroup]="reportForm" [ngClass]="{'flashing-input':clicked}">
 
           <select formControlName="atype" name="atype">
-            <option value="none" disabled selected>Select alien type</option>
+            <option value="" disabled selected>Select alien type</option>
             <option *ngFor="let alien of aliens" value="{{alien.type}}">{{ alien.type }}</option>
           </select>
 

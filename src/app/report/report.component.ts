@@ -32,10 +32,9 @@ export class ReportComponent implements OnInit {
     this.clicked = false;
 
     this.reportForm = new FormGroup ({
-      atype: new FormControl('none', [Validators.required]),
+      atype: new FormControl('', [Validators.required, Validators.nullValidator]),
       action: new FormControl('', [Validators.required, Validators.maxLength(200)])
     })
-
   }
 
   ngOnInit() {

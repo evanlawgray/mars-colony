@@ -1,33 +1,35 @@
-<div class="register-page"> 
-  <div class="register-page-wrapper">
-    <h1 class="page-header">Register</h1>
+<ng2-page-transition>
+  <div class="register-page"> 
+    <div class="register-page-wrapper">
+      <h1 class="page-header">Register</h1>
 
 
-    <form class="form-container" 
-          [formGroup]="registerForm" 
-          [ngClass]="{'flashing-input': clicked}"
-          (ngSubmit)="postNewColonist($event)">
-      <fieldset class="registration-form" *ngIf="loadingJobs === false">
-        <input type=text id=name-input placeholder="Name" formControlName="name" name="name"/>
-        <input type="number" id=age-input placeholder="Age" formControlName="age" name="age"/>
-        <select formControlName="job_id" name="job_id">        
-          <option value="none" disabled required selected>Select occupation</option>
-          <option *ngFor="let job of marsJobs" value="{{job.id}}">{{ job.name }}</option>
-        </select>
-      </fieldset>
-      <fieldset class="sign-in">
-        <button type="submit" 
-                (click)="postNewColonist($event)">
-          <p *ngIf="loadingJobs === true" class="check-in loading">Loading...</p>
-          <p *ngIf="loadingJobs === false"
-             class="check-in">
-             Check in</p>
-          <div *ngIf="loadingJobs ===true" class="loader-gif">  
-          </div>
-        </button>
-      </fieldset>
+      <form class="form-container" 
+            [formGroup]="registerForm" 
+            [ngClass]="{'flashing-input': clicked}"
+            (ngSubmit)="postNewColonist($event)">
+        <fieldset class="registration-form" *ngIf="loadingJobs === false">
+          <input type=text id=name-input placeholder="Name" formControlName="name" name="name"/>
+          <input type="number" id=age-input placeholder="Age" formControlName="age" name="age"/>
+          <select formControlName="job_id" name="job_id">        
+            <option value="none" disabled required selected>Select occupation</option>
+            <option *ngFor="let job of marsJobs" value="{{job.id}}">{{ job.name }}</option>
+          </select>
+        </fieldset>
+        <fieldset class="sign-in">
+          <button type="submit" 
+                  (click)="postNewColonist($event)">
+            <p *ngIf="loadingJobs === true" class="check-in loading">Loading...</p>
+            <p *ngIf="loadingJobs === false"
+              class="check-in">
+              Check in</p>
+            <div *ngIf="loadingJobs ===true" class="loader-gif">  
+            </div>
+          </button>
+        </fieldset>
 
-    </form>
+      </form>
 
-  </div>  
-</div>
+    </div>  
+  </div>
+</ng2-page-transition>

@@ -5,6 +5,8 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
+import { Ng2PageTransitionModule } from "ng2-page-transition"; // <-- import the module
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
@@ -37,7 +39,8 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    Ng2PageTransitionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

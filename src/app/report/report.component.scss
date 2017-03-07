@@ -59,8 +59,8 @@
         .submit-report-button {
             height: auto;
             min-height: 110px;
-            width: 40%;
-            margin-top: 1.5rem;
+            width: 100%;
+            margin-top: 3.5rem;
             border: none;
             border-radius: $button-border-radius;
             color: white;
@@ -76,7 +76,7 @@
     }
 }
 
-.ng-invalid.flashing-input textarea.ng-pristine.ng-invalid, .ng-invalid.flashing-input select.ng-pristine {
+.ng-invalid.flashing-input textarea.ng-invalid, .ng-invalid.flashing-input select.ng-pristine {
     @include input-flasher-animation();
 }
 
