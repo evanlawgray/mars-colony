@@ -34,6 +34,7 @@ export class RegisterComponent implements OnInit {
   jobsAPIService: JobsAPIService;
   loadingJobs: boolean;
   jobsRequestFailed: boolean;
+  invalidAge: boolean;
 
   public fakeColonist;
 
@@ -44,7 +45,7 @@ export class RegisterComponent implements OnInit {
 
     this.clicked = false;
     this.loadingJobs = true;
-
+    this.invalidAge = false;
     this.getMarsJobs();
 
 
@@ -60,8 +61,9 @@ export class RegisterComponent implements OnInit {
   acceptAge(min: number, max: number) {
     return (control: AbstractControl):{ [key: string]: any } => {
       if (control.value < min || control.value > max) {
+        this.invalidAge = true;
         return { 'Sorry, wrong age group': { age: control.value } };
-      }
+      } else { this.invalidAge = false; }
     }
   }
 

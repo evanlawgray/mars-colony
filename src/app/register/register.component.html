@@ -16,6 +16,9 @@
             <option *ngFor="let job of marsJobs" value="{{job.id}}">{{ job.name }}</option>
           </select>
         </fieldset>
+        <p *ngIf="invalidAge === true && clicked === true && age === invalid" 
+               class="form-feedback-text">
+               New colonists must be between the ages of 18 and 50</p>
         <fieldset class="sign-in">
           <button type="submit" 
                   (click)="postNewColonist($event)">
@@ -23,7 +26,7 @@
             <p *ngIf="loadingJobs === false"
               class="check-in">
               Check in</p>
-            <div *ngIf="loadingJobs ===true" class="loader-gif">  
+            <div *ngIf="loadingJobs === true" class="loader-gif">  
             </div>
           </button>
         </fieldset>

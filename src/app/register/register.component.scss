@@ -33,64 +33,74 @@
                 }
             }
         }
-    }
-}
 
-.sign-in {
-    width: 100%;
-    text-align: center;
-
-    button {
-        height: auto;
-        width: 30%;
-        min-width: 250px;
-        background: none;
-        margin: 0 auto;
-        border: none;
-        @include flex-column(center);
-        
-        &:hover {
-            cursor: pointer;
-        }
-        .check-in {
+        .form-feedback-text {
+            height: 100px;
             width: 100%;
-            min-width: 250px;
-            height: auto;
-            min-height: 110px;
-            margin: 0 auto;
-            border: none;
-            border-radius: $button-border-radius;
-            background: none;
+            margin-bottom: 0;
+            font-size: 1.25rem;
             color: white;
-            font-size: 2.25rem;
-            font-weight: 100;
-            letter-spacing: 1px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             text-align: center;
-            
-            &:hover {
-                cursor: pointer;
+            text-transform: uppercase;
+        }
+        .sign-in {
+            width: 100%;
+            text-align: center;
+
+            button {
+                height: auto;
+                width: 30%;
+                min-width: 250px;
+                background: none;
+                margin: 0 auto;
+                border: none;
+                @include flex-column(center);
+                
+                &:hover {
+                    cursor: pointer;
+                }
+                .check-in {
+                    width: 100%;
+                    min-width: 250px;
+                    height: auto;
+                    min-height: 110px;
+                    margin: 0 auto;
+                    border: none;
+                    border-radius: $button-border-radius;
+                    background: none;
+                    color: white;
+                    font-size: 2.25rem;
+                    font-weight: 100;
+                    letter-spacing: 1px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+
+                .loading {
+                    margin-top: 10%;
+                    padding-left: 0.5rem;
+                }
+
+                .loader-gif {
+                    height: 200px;
+                    width: 100%;
+                    min-width: 220px;
+                    max-width: 400px;
+                    margin: 20% auto;
+                    background: url("../../assets/images/futuristic-loader.gif") no-repeat center;
+                    background-size: 120%;
+                }
             }
         }
-
-        .loading {
-            margin-top: 10%;
-            padding-left: 0.5rem;
-        }
-
-        .loader-gif {
-            height: 200px;
-            width: 100%;
-            min-width: 220px;
-            max-width: 400px;
-            margin: 20% auto;
-            background: url("../../assets/images/futuristic-loader.gif") no-repeat center;
-            background-size: 120%;
-        }
     }
 }
+
 
 form.ng-valid .check-in {
     @include button-flasher-animation();
@@ -102,7 +112,7 @@ form.ng-valid .check-in {
 
 @keyframes input-flasher {
     0% {
-        box-shadow: 0px 0px 0px 0px #ED4343;
+        box-shadow: 0px 0px 0px 0px $red-text-color;
     }
     100% {
         box-shadow: 0px 0px 0px 11px black;
@@ -120,6 +130,6 @@ form.ng-valid .check-in {
         box-shadow: inset 0px 0px 75px 50px black;
     }
     100% {
-        color: #ED4343;
+        color: $red-text-color;
     }
 }
