@@ -22,7 +22,8 @@ const routes: Routes = [
   { path: 'encounters', component: EncountersComponent},
   { path: 'report', component: ReportComponent},
   { path: 'notfound', component: NotfoundComponent},
-  {path: 'journal', component: JournalComponent}]
+  { path: 'journal', component: JournalComponent},
+  { path: '**', redirectTo: 'notfound' }]
 
 @NgModule({
   declarations: [
