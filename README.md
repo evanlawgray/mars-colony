@@ -31,11 +31,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Learning Outcomes
 
-* As an introduction to the concept of building an application entirely in the front-end using javascript-based code, this was really eye opening. I am excited to delve into this more through learning more about angular and other similar technologies.
+* As an introduction to the concept of building an application entirely in the front-end using javascript, this was really eye opening. I am excited to delve into this more through learning more about angular and other similar technologies.
 
-* I think I learned quite a bit about best practices in app design through this project, as well as absorbing some basic terminology and concepts (views, components etc.) that may be applicable outside of the world of Angular.
+* I think I learned quite a bit about best practices in app design through this project, as well as absorbing some basic terminology and concepts (views, models, components etc.) that are applicable outside of the world of Angular.
 
-* Although there wasn't a huge amount of CSS for this project, I got to practice writing 'dryer' SASS, as well as thinking about how styling choices affect user experience/user interface. Designing animations in order to give the user feedback, rather than just to produce an interesting look, was a fun experiment.
+* Although there wasn't a huge amount of CSS for this project, I got to practice writing 'DRY' SASS, as well as thinking about how styling choices affect the user experience. For example, designing animations in order to give the user feedback on their form inputs, rather than just to produce an interesting look.
 
 
 
