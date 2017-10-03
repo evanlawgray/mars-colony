@@ -27,7 +27,7 @@ export class ReportComponent implements OnInit {
     private aliensApiService: AliensAPIService,
     private encountersApiService: EncountersAPIService,
     private router: Router) {
-    
+
     this.getAliens();
     this.clicked = false;
 
@@ -42,28 +42,24 @@ export class ReportComponent implements OnInit {
 
   getDate() {
     const date = new Date;
-    var yy = date.getFullYear() + 1; 
-    var mm = date.getMonth() + 1;
-    var dt = date.getDate();
+    const yy = date.getFullYear();
+    const mm = date.getMonth() + 1;
+    const dt = date.getDate();
 
     return `${yy}-${mm}-${dt}`.toString();
- 
   }
 
   postNewEncounter(event) {
     event.preventDefault();
-    
-    if(this.reportForm.invalid) {
+    if (this.reportForm.invalid) {
       this.clicked = true;
-     
-
     } else {
       const atype: string = this.reportForm.get('atype').value.toString();
       const action: string = this.reportForm.get('action').value.toString();
       const date: string = this.getDate().toString();
       const colonist: string = localStorage.getItem("colonist");
       const colonistObject: Colonist = JSON.parse(colonist);
-      const colonist_id:string = colonistObject.id.toString();
+      const colonist_id: string = colonistObject.id.toString();
 
       const newEncounter: NewEncounter = new NewEncounter(atype, date, action, colonist_id);
       this.encountersApiService.saveNewEncounter({ encounter:newEncounter })
@@ -75,9 +71,8 @@ export class ReportComponent implements OnInit {
 
   getAliens() {
     this.aliensApiService.fetchAliens()
-                       .subscribe((result) => {
-                        this.aliens = result;
-                       });    
+                         .subscribe((result) => {
+                           this.aliens = result;
+                         });
   }
-
 }

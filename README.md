@@ -28,9 +28,6 @@ Before running the tests make sure you are serving the app via `ng serve`.
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-## Bugs
-
-* I have added posts from the 'Mars Commander' blog to the Journal view of the app, but I haven't been able to figure out how to parse out the \<p> tags that are included in the text due to wordpress' built in formatting. I will bring this issue up with one of the instructors during portfolio week.
 
 ## Learning Outcomes
 
